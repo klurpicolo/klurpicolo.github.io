@@ -1,0 +1,45 @@
+---
+layout: post
+title:  "YAML101"
+date:   2021-09-04 22:00:00 +0700
+categories: misc
+---
+
+YAML stands for YAML Ain't Markup Language. It is super set of JSON. Therefore every JSON can convert to YAML but not the way around.
+
+### Feature
+```yaml
+
+#Map
+key : value
+
+#Nested map
+parent_key :
+  child_key1 : value1
+  child_key2 : value2
+
+#Sequence
+list_of_sth:
+ - first_item
+ - second_item
+ - thrid_item
+
+#Mutiline string
+mutiline_newline : |
+  this is consider and newline
+  and "Newline" character is preserve
+
+mutiline_folded_string : >
+  this is consider as folded string
+  newline'll be replaced by space
+
+#Document separator
+doc1
+---
+doc2
+
+```
+
+### Tools
+- yamllint : validate yaml
+  https://github.com/adrienverge/yamllint
