@@ -1,0 +1,51 @@
+---
+layout: post
+title:  "Kubernetes!!"
+date:   2021-09-04 22:00:00 +0700
+categories: devops
+tags: [devops]
+---
+
+# Kubernetes☸️
+Kubernetes or K8s is container orchestration tool. It provides many useful solution of scaling , service discovery, configuration and secret management and so on.
+
+## Why we need Kuberetes
+For simple application, we can just docker run or docker-compose to deploy. But for load intensive, high availablity application, Kubernetes gives us tools to achieve that.
+
+## Terminology
+- Worksloads
+  - Node : Machine(vistual or physical) that used for run Pods
+  - Pod : Pod is a group of one or more containers. It can be considered as wrapper of Container(s). Normally, we don't deploy Pod directly but rather create Pod using workload resources such as Deployment, Job or StatefulSet
+- Network
+  - Service : This give abstract way to expose application without knowing the Pod being behind.
+  - Ingress : Ingress is specification of proxy used for expose Service. It can be used for routing, load balancer, WAF and so on.
+  - IngressController : This is actual implementation of Ingress, without this Ingress can't be used.
+One of famous IngressController is Nginx.
+- Workload resources
+  - Deployment : It's instruction of desired state of application. We can set how many pod to deploy, deployment strategy and so on.
+  - StatefulSet : Similar to Deployment but for stateful applications such as database.
+  - DaemonSet : DaemonSet ensures that Nodes(or somes) run a copy of Pod. One of use cases is log collector.
+- Storage
+  - PersistentVolumeA(PV) : is a piece of storage in the cluster that provisioned manually or using StorageClass. PV also contain information about specific detail.
+  - PersistentVolumeClaima(PVC) : is a request for storage to attached to Pod. Relation between PV and PVC is similar to Pod and Node.Pod consumes Node resources and PVC consumes PV resources. PCV has 2 properties, size and access mode.
+  - StorageClass : with PV, user have to create volume statically before use. By StorageClass, volume can be provisioned dynamically.
+- Configuration
+  - ConfigMap : ConfigMap is key-value pairs data that can be injected to Pod. Pods can consumes ConfigMaps as env variables, cmd arguments or configuration files.
+  - Secret : Similar to ConfigMap but for sensitive data. Eg. TLS secrets, database password.
+- Access control
+  - Service accounts : User that respresents Pod to when interact wih apiserver in K8s.
+  - Roles : A set of permissions with a particular namespace. Permission is defined by resources type(target of action) and verbs(action)
+  - ClusterRole : Similar to Roles but not restrict to a namespace. It define roles on cluster scope Eg. Nodes.
+  - RoleBindings : Grant a role to users, service accounts.
+  - ClusterRoleBindings : Similar to RoleBindings but for ClusterRole.
+- Custom Resource Definition(CRD) : is extension of the K8s API. CRD can be defind and installed. Eg. ArgoCD Applicatgion, IstioOperator.
+
+- Kubernetes Objects :
+  K8s can describe in YAML file with 4 required fields.
+  - apiVersion : version of K8s api.
+  - kind : type of K8s object. Eg. Pod, Serivce.
+  - metadata : data helps to identify object
+    - labels : key-value pairs that used for describe object. Eg. name, version, managed-by. Labels can be used for select objects(think of tags).
+    - annotations : key-value paris used for add some metadata for others(human or K8s object) to get metadata.
+  - spec : the desired state of object. details depends on type of K8s object.
+    - selector : we can select K8s object using labels.
