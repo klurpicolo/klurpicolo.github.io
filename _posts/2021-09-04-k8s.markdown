@@ -3,7 +3,7 @@ layout: post
 title:  "Kubernetes101"
 date:   2021-09-04 22:00:00 +0700
 categories: devops
-tags: [devops]
+tags: [devops, kubernetes]
 ---
 
 # Kubernetes☸️
