@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Elasticstack"
+title:  "Elasticstack101"
 date:   2021-09-08 14:00:00 +0700
 categories: devops
 tags: [devops]
