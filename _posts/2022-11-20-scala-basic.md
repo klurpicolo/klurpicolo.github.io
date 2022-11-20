@@ -39,7 +39,7 @@ lazy val lazyVal = {
 Object class is signlenton/static which there is only 1 instance on JVM.
 
 # Companion object
-todo
+Companion object is an object with the same name as class in the same file. It's used for store instance-indepedent field/method (static) related to the class. For example, we can put factory related method into Companion object.
 
 # Case class
 Case class is class that Scala help implement a lot of methods automatically(similar to record in Java)
