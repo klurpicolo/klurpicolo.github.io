@@ -82,3 +82,31 @@ object StringExtensions {
     }
   }
 ```
+
+# Try, Option
+They are classes that wrap that actual underlining data. They are case class, so we can handle them using case matching. Another example is Future.onComplete() which take Try[T] => U as arguments.
+Try -> Success or Exception
+Option -> Some or None
+```scala
+val possibleException = Try(throw new RuntimeException("PANIC"))
+val result = possibleException match {
+  case Success(_) => "it success somehow"
+  case Failure(exception) => s"error with ${exception.getMessage}"
+}
+println(result)
+```
+
+# For comprehensions
+The form of it is ```for (enumerators) yield e```. They looks are equivalent to collection that concatinated using flatMap that produce as e in List.
+```scala
+val looping = for {
+  x <- List(1,2)
+  y <- List(3,4)
+} yield (x,y)
+
+looping.foreach((a: Int, b: Int) => println(s"$a and $b"))
+//1 and 3
+//1 and 4
+//2 and 3
+//2 and 4
+```
