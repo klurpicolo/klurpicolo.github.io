@@ -110,3 +110,19 @@ looping.foreach((a: Int, b: Int) => println(s"$a and $b"))
 //2 and 3
 //2 and 4
 ```
+
+# Currying
+Curring is the process of converting a fucntion with multiple arguments into funtion with less argument(less generic).
+```scala
+def applyTo(operation: (Int, Int) => Int)(a: Int, b: Int): Int = {
+  operation(a,b)
+}
+
+val plusOperation = (arg1: Int, arg2: Int) => arg1 + arg2
+val plus: (Int, Int) => Int = applyTo(plusOperation)
+println(plus(1,2)) // =3
+
+val exponentialOperation = (arg1: Int, arg2: Int) => Math.pow(arg1,arg2).toInt
+val exponential: (Int, Int) => Int = applyTo(exponentialOperation)
+println(exponential(2,3)) // =8
+```
