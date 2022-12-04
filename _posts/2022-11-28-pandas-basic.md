@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Pandas 101"
-date:   2022-28-28 22:00:00 +0700
+date:   2022-11-28 22:00:00 +0700
 categories: [datascience]
 ---
 
