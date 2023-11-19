@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Scala 101"
-date:   2022-08-13 22:00:00 +0700
+date:   2022-11-20 22:00:00 +0700
 categories: [scala]
 ---
 
